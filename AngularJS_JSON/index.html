@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/main.js"></script>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController" ng-init="getOrders()">
+    <h1>Ajax Exercise</h1>
+    <div ng-hide="orders == null">Data sucessfully imported
+        <div id="table-wrapper">
+        <div id="table-scroll">
+    <table>
+        <thead>
+            <tr>
+                <th>Order Id</th>
+                <th>Ship name</th>
+                <th>Ship City</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="order in orders">
+        <td>{{order.OrderID}}</td>
+        <td>{{order.ShipName}}</td>
+        <td>{{order.ShipCity}}</td>
+        <td ng-click="getOrderDetails(order.OrderID)">Get Details</td>
+    </table>
+    </div>
+    </div>
+    </div>
+    <div ng-show="loading">Loading...</div>
+    <div ng-hide="error == null"><p>{{error}}</p></div>
+    <div ng-hide="orderDetails == null"><table>
+        <thead>
+            <tr>
+                <th>Order Id</th>
+                <th>Product name </th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="orderNo in orderDetails">
+        <td>{{orderNo.OrderID}}</td>
+        <td>{{orderNo.ProductName}}</td>
+        <td>{{orderNo.UnitPrice}}</td>
+        <td>{{orderNo.Quantity}}</td>
+    </table></div>
+</div>
+</body>
+</html>
