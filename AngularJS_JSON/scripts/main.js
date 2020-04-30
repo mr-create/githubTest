@@ -8,7 +8,7 @@ $scope.error = null;
 $scope.getOrders = function() {
     $scope.loading = true;
     $http({
-        method: "Get", url: 'https://raw.githubusercontent.com/mr-create/githubTest/develop/json/sampleData.json'
+        method: "Get", url: 'http://www.json-generator.com/api/json/get/cgyOuQBrxe?indent=2'
     }).then(function(response) {
         $scope.loading = false;
         $scope.orders = response.data;
